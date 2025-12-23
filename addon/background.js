@@ -71,6 +71,19 @@ browser.pageAction.onClicked.addListener((async (tab) => {
   openUrl(url);
 }));
 
+browser.commands.onCommand.addListener(async (command) => {
+  if (command === "navigate-home") {
+    await browser.sidebarAction.open();
+    const result = await browser.storage.local.get(["homeUrl"]);
+    if (result.homeUrl) {
+      openUrl(result.homeUrl);
+    } else {
+      // Navigate to the welcome/sidebar page
+      browser.sidebarAction.setPanel({panel: "sidebar.html"});
+    }
+  }
+});
+
 async function openUrl(url) {
   sidebarUrl = url;
   let hostname = (new URL(url)).hostname;

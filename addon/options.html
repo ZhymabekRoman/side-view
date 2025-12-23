@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Side View Settings</title>
+    <link rel="stylesheet" href="options.css"/>
+  </head>
+  <body>
+    <div class="page">
+      <h1 class="title">Side View Settings</h1>
+
+      <form id="settings-form">
+        <div class="setting-group">
+          <label for="home-url">
+            <span class="label-text">Home Page URL</span>
+            <span class="label-description">Set a custom home page to open in Side View (leave empty for welcome page)</span>
+          </label>
+          <input
+            type="url"
+            id="home-url"
+            name="homeUrl"
+            placeholder="https://example.com"
+            class="input-field"
+          />
+        </div>
+
+        <div class="setting-group">
+          <div class="info-box">
+            <strong>Keyboard Shortcut:</strong> Press <kbd>Alt+Shift+S</kbd> to navigate to your home page in Side View
+          </div>
+        </div>
+
+        <div class="button-group">
+          <button type="submit" id="save-button" class="primary-button">Save Settings</button>
+          <button type="button" id="reset-button" class="secondary-button">Reset to Default</button>
+        </div>
+
+        <div id="status-message" class="status-message" style="display: none;"></div>
+      </form>
+    </div>
+
+    <script src="build/buildSettings.js"></script>
+    <script src="options.js"></script>
+  </body>
+</html>
